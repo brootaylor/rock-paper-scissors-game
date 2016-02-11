@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Rock-Paper-Scissors Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <link rel="stylesheet" href="css/main.css">
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <!-- Main content -->
+        <main role="main">
+
+            <h1>Rock-Paper-Scissors Game</h1>
+
+            <!-- "aria-hidden="true" added to prevent a screenreader reading this <hr> out. -->
+            <hr aria-hidden="true">
+
+            <section class="choose-game">
+
+                <!-- Visually hidden but still visible to screenreaders -->
+                <h2 class="visuallyhidden">Choose your game</h2>
+
+                <ul class="choose-game--opt clearfix" role="tablist">
+                    <li><a id="gamecontent-1" role="tab" href="#tab1" class="button-primary active">You <em>versus</em> Computer</a></li>
+                    <li><a id="gamecontent-2" role="tab" href="#tab2" class="button-primary">Computer <em>versus</em> Computer</a></li>
+                </ul>
+
+                <div id="tab1" role="tabpanel" aria-labelledby="gamecontent-1" aria-hidden="false" class="choose-game--opt_versus">
+
+                    <!-- Visually hidden but still visible to screenreaders -->
+                    <h3 class="visuallyhidden">You <em>versus</em> Computer</h3>
+
+                    <ul class="clearfix">
+                        <li>
+                            <a href="" title="Be the Rock" class="rock">
+
+                                <!-- Visually hidden but still visible to screenreaders -->
+                                <span class="visuallyhidden">Be the Rock</span>
+
+                                <img src="img/rock.png" alt="Rock image">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" title="Be the Paper" class="paper">
+
+                                <!-- Visually hidden but still visible to screenreaders -->
+                                <span class="visuallyhidden">Be the Paper</span>
+
+                                <img src="img/paper.png" alt="Paper image">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" title="Be the Scissors" class="scissors">
+
+                                <!-- Visually hidden but still visible to screenreaders -->
+                                <span class="visuallyhidden">Be the Scissors</span>
+
+                                <img src="img/scissors.png" alt="Scissors image">
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- 
+                        The result message!
+                        ===================
+                        The aria-live="assertive" attribute is used to make a strong announcement to the screenreader user.
+                        In this case that there's an updated results message.
+                    -->
+                    <div class="result" role="region" aria-live="assertive">
+                        <!-- Visually hidden but still visible to screenreaders -->
+                        <h4 class="visuallyhidden">This round's results</h4>
+                        <!-- Results message inserted in here... -->
+                    </div>
+
+                </div>
+
+                <div id="tab2" role="tabpanel" aria-labelledby="gamecontent-2" aria-hidden="true" class="choose-game--opt_versus hidden">
+
+                    <!-- Visually hidden but still visible to screenreaders -->
+                    <h3 class="visuallyhidden">Computer <em>versus</em> Computer</h3>
+
+                    <ul>
+                        <li>
+                            <a href="" title="Be the Rock" class="rock">
+
+                                <!-- Visually hidden but still visible to screenreaders -->
+                                <span class="visuallyhidden">Be the Rock</span>
+
+                                <img src="img/rock.png" alt="Rock image">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" title="Be the Paper" class="paper">
+
+                                <!-- Visually hidden but still visible to screenreaders -->
+                                <span class="visuallyhidden">Be the Paper</span>
+
+                                <img src="img/paper.png" alt="Paper image">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" title="Be the Scissors" class="scissors">
+
+                                <!-- Visually hidden but still visible to screenreaders -->
+                                <span class="visuallyhidden">Be the Scissors</span>
+
+                                <img src="img/scissors.png" alt="Scissors image">
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Restart link / button -->
+                    <a href="" class="button-secondary start">Restart the game</a>
+
+                    <!-- 
+                        The result message!
+                        ===================
+                        The aria-live="assertive" attribute is used to make a strong announcement to the screenreader user.
+                        In this case that there's an updated results message.
+                    -->
+                    <div class="result" role="region" aria-live="assertive">
+                        <!-- Visually hidden but still visible to screenreaders -->
+                        <h4 class="visuallyhidden">This round's results</h4>
+                        <!-- Results message inserted in here... -->
+                    </div>
+
+                </div>
+                
+            </section>
+            
+        </main>
+        <!-- / Main content -->
+
+        <!-- Footer content -->
+        <footer role="contentinfo" id="footer">
+            <small>&#169; Rock-paper-scissors 1601 &ndash;
+                <script>
+                    <!--
+                    var dteNow = new Date();
+                    var intYear = dteNow.getFullYear();
+                    document.write(intYear);
+                    //-->
+                </script>
+            </small>
+        </footer>
+        <!-- / Footer content -->
+
+        <!-- /// JavaScript \\\ -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+
+        <!-- Site-specific JS -->
+        <script src="js/main.js"></script>
+        <!-- / JavaScript -->
+
+    </body>
+</html>

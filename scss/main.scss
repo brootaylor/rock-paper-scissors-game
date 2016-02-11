@@ -1,0 +1,375 @@
+@charset "UTF-8";
+
+
+/* VENDORS (1st) - Default fall-backs.
+====================================================================================================== */
+@import 'vendors/_normalize.scss';
+
+
+/* VARIABLES
+====================================================================================================== */
+
+// Colour palette
+// ==============
+
+$white: #fff;
+$black: #000;
+$grey: #ccc;
+$orange: #f26c4f;
+
+
+// Brand colours
+// ==============
+
+$color-primary: $orange;
+$color-secondary: $black;
+
+/////////////////////////////////////////////////////
+
+// Fonts
+// ==============
+
+// Base font size
+$base-font-size: 16px;
+
+// Font families
+$font-primary: 'Open Sans', sans-serif, Arial, "Helvetica Neue", Helvetica; 
+$font-secondary: "Times New Roman", Georgia, Serif;
+
+// Font weights (primary custom font)
+$fw-primary-light: 300; // Light
+$fw-primary-normal: 400; // Normal
+$fw-primary-semi-bold: 600; // Semi-bold
+$fw-primary-bold: 700; // Bold
+
+
+/////////////////////////////////////////////////////
+
+// Links
+// ==============
+$link-primary: $color-primary;
+$link-secondary: $color-secondary;
+
+
+/////////////////////////////////////////////////////
+
+// Buttons
+// ==============
+$button-primary: $color-primary;
+$button-secondary: $color-secondary;
+
+
+/* FUNCTIONS
+====================================================================================================== */
+
+// Function for converting px to em. Works well for eg. margins, padding, media query min-width etc.
+////////////////////////////////////////////////////////////////////////////////////////////////////
+@function pxToEm ($values, $elFontSize: $baseFontSize) {
+  $list: ();
+
+  @each $value in $values {
+    @if ($value == 0 or $value == auto) {
+      $list: append($list, $value);
+    } @else {
+      $emValue: ($value/$elFontSize)+em;
+      $list: append($list, $emValue);
+    }
+  }
+  @return $list;
+}
+
+// Function for converting a px based font-size to rem.
+///////////////////////////////////////////////////////
+@function calculateRem($size) {
+  $remSize: $size / $base-font-size; // = 16px
+    // Default font size on html element is 100%, equivalent to 16px;
+  @return #{$remSize}rem;
+}
+
+
+// Function for creating a quick grid.
+///////////////////////////////////////////////////////
+@function calculate-width ($col-span) {
+  @return 100% / $col-span; // Worked out relative to 100% width
+}
+
+
+/* MIXINS
+====================================================================================================== */
+
+// Button mixin
+/////////////////////
+@mixin btn-background($btn-background) {
+    @extend %btn;
+    border: 1px solid $btn-background;
+    background-color: transparent;
+
+    // Hover state
+    // &:hover {
+    //     background-color: darken($btn-background, 5%);
+    // }
+}
+
+// Media query Mixin
+/////////////////////
+@mixin break-point($bp, $min-max: min-width) {
+  $em: $bp/$base-font-size;
+  @media(#{$min-max}: #{$em}em) { @content; }
+}
+
+// Mixin that will include the fall-back px declaration as well as the calculated rem value.
+////////////////////////////////////////////////////////////////////////////////////////////
+@mixin fontSize($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+
+/* PLACEHOLDERS
+====================================================================================================== */
+
+// Buttom placeholder
+/////////////////////
+%btn {
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  width: auto;
+  padding: pxToEm(10px, $base-font-size);
+  border: 0;
+  @include fontSize($base-font-size);
+  text-align: center;
+  text-decoration: none;
+  zoom: 1\9;
+  overflow: visible\9;
+  font-weight: $fw-primary-normal;
+}
+
+
+/* MAIN - Main styles
+====================================================================================================== */
+
+// Global typography settings
+//////////////////////////////
+
+html {
+    color: lighten($black, 30%);
+    background-color: $white;
+    font-family: $font-primary;
+    font-weight: $fw-primary-light;
+    font-size: $base-font-size;
+    line-height: 1.4;
+}
+
+
+/////////////////////////////////////////////////////
+
+h1 {
+    @include fontSize(20px);
+    font-weight: $fw-primary-light;
+    color: $black;
+
+    @include break-point(360px) {
+        @include fontSize(22px);
+    }
+    @include break-point(400px) {
+        @include fontSize(24px);
+    }
+    @include break-point(540px) {
+        @include fontSize(26px);
+    }
+    @include break-point(640px) {
+        @include fontSize(28px);
+    }
+}
+
+p {
+    margin: pxToEm(10px 0, $base-font-size);
+}
+
+hr {
+    display: block;
+    height: pxToEm(1px, $base-font-size);
+    border: 0;
+    border-top: pxToEm(1px, $base-font-size) solid darken($white, 70%);
+    margin: pxToEm(1px 0, $base-font-size);
+    padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+body {
+    max-width: 80em; // The widest the site will stretch = 1280px equivalent (based on 16px base pixel side)
+    margin: 0 auto;
+}
+
+// Keeping the images responsive...
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+ 
+// Buttons
+//////////////////////////
+
+a {
+	// Primary button
+	&.button-primary {
+		@include btn-background($button-primary);
+    color: $button-primary;
+
+    em {
+      color: $black;
+    }
+
+      &.active {
+        background-color: $button-primary;
+        color: $white;
+      }
+	}
+
+	// Secondary button
+	&.button-secondary {
+		@include btn-background($button-secondary);
+    color: $button-secondary;
+    padding-left: 44px;
+    position: relative;
+
+      &:before {
+        content: url(../img/restart.png);
+        position: absolute;
+        //width: 32px;
+        left: 10px;
+        //top: 0;
+      }
+	}
+
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+// Main content container
+//////////////////////////
+main {
+    margin-left: pxToEm(15px, $base-font-size);
+    margin-right: pxToEm(15px, $base-font-size);
+}
+
+// Footer malarkey
+//////////////////////////
+footer {
+  margin: pxToEm(0 15px 15px 15px, $base-font-size);
+  border-top: pxToEm(1px, $base-font-size) solid $black;
+
+    small {
+      display: block;
+      margin-top: pxToEm(10px, $base-font-size);
+    }
+}
+
+// Primary game section container
+//////////////////////////////////
+.choose-game {
+  text-align: center;
+}
+
+// Game choice - (buttons / links / tabs)
+//////////////////////////////////////////
+.choose-game--opt {
+  a {
+    @include fontSize(14px);
+  }
+  li:first-child {
+    margin-bottom: pxToEm(10px, $base-font-size);
+  }
+
+  @include break-point(480px) {
+
+      li {
+        float: left;
+        width: calculate-width(2);
+        margin-bottom: 0; 
+      }
+  }
+  @include break-point(530px) {
+    a {
+      @include fontSize(16px);
+    }
+  }
+}
+
+// Game container
+//////////////////////////
+.choose-game--opt_versus {
+  text-align: center;
+
+  h3 {
+    text-align: center;
+  }
+  li {
+    &:nth-child(2) {
+      a {
+        display: block;
+        margin-left: pxToEm(15px, $base-font-size);
+
+          @include break-point(480px) {
+            margin-left: pxToEm(20px, $base-font-size);
+          }
+      }
+    }
+  }
+  .result {
+    background-color: $black;
+    //padding: 10px 0;
+    strong {
+      @include fontSize(28px);
+      color: $orange;
+    }
+    div {
+      white-space: nowrap;
+      color: darken($white, 30%);
+      line-height: 2em;
+
+        em {
+          color: $white;
+          @include fontSize(18px);
+        }
+    }
+    .decision {
+      line-height: 3em;
+
+        em {
+          @include fontSize(28px);
+        }
+    }
+  }
+  .button-secondary {
+    margin: pxToEm(15px, $base-font-size);
+  }
+  
+    @include break-point(260px) {
+      li {
+        float: left;
+        width: calculate-width(3);
+      }
+    }
+}
+
+
+
+
+/* LAST OF THE LAST - styles that need to come last
+====================================================================================================== */
+@import 'helpers/_helper-classes.scss';
+
+

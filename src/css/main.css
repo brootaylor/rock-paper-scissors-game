@@ -1,0 +1,126 @@
+/* VENDORS (1st) - Default fall-backs.
+====================================================================================================== */
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+/** 1. Set default font family to sans-serif. 2. Prevent iOS text size adjust after orientation change, without disabling user zoom. */
+html { font-family: sans-serif; /* 1 */ -ms-text-size-adjust: 100%; /* 2 */ -webkit-text-size-adjust: 100%; /* 2 */ }
+
+/** Remove default margin. */
+body { margin: 0; }
+
+/* HTML5 display definitions
+========================================================================== */
+/** Correct `block` display not defined for any HTML5 element in IE 8/9. Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox. Correct `block` display not defined for `main` in IE 11. */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary, picture { display: block; }
+
+/** Address `[hidden]` styling not present in IE 8/9/10. Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22. */
+[hidden], template { display: none; }
+
+/* Links
+========================================================================== */
+/** Remove the gray background color from active links in IE 10. */
+a { background: transparent; }
+
+/** Improve readability when focused and also mouse hovered in all browsers. */
+a:active, a:hover { outline: 0; }
+
+/* Text-level semantics
+========================================================================== */
+/** Address style set to `bolder` in Firefox 4+, Safari, and Chrome. */
+b, strong { font-weight: bold; }
+
+/** Address variable `h1` font-size and margin within `section` and `article` contexts in Firefox 4+, Safari, and Chrome. */
+h1 { font-size: 2em; margin: 0.67em 0; }
+
+/** Address inconsistent and variable font size in all browsers. */
+small { font-size: 80%; }
+
+/* Embedded content
+========================================================================== */
+/** Remove border when inside `a` element in IE 8/9/10. */
+img { border: 0; }
+
+/** Correct overflow not hidden in IE 9/10/11. */
+svg:not(:root) { overflow: hidden; }
+
+/* Grouping content
+========================================================================== */
+/** Address differences between Firefox and other browsers. */
+hr { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
+
+/* VARIABLES
+====================================================================================================== */
+/* FUNCTIONS
+====================================================================================================== */
+/* MIXINS
+====================================================================================================== */
+/* PLACEHOLDERS
+====================================================================================================== */
+a.button-primary, a.button-secondary { cursor: pointer; display: inline-block; overflow: hidden; width: auto; padding: 0.625em; border: 0; font-size: 16px; font-size: 1rem; text-align: center; text-decoration: none; zoom: 1\9; overflow: visible\9; font-weight: 400; }
+
+/* MAIN - Main styles
+====================================================================================================== */
+html { color: #4d4d4d; background-color: #fff; font-family: "Open Sans", sans-serif, Arial, "Helvetica Neue", Helvetica; font-weight: 300; font-size: 16px; line-height: 1.4; }
+
+h1 { font-size: 20px; font-size: 1.25rem; font-weight: 300; color: #000; }
+@media (min-width: 22.5em) { h1 { font-size: 22px; font-size: 1.375rem; } }
+@media (min-width: 25em) { h1 { font-size: 24px; font-size: 1.5rem; } }
+@media (min-width: 33.75em) { h1 { font-size: 26px; font-size: 1.625rem; } }
+@media (min-width: 40em) { h1 { font-size: 28px; font-size: 1.75rem; } }
+
+p { margin: 0.625em 0; }
+
+hr { display: block; height: 0.0625em; border: 0; border-top: 0.0625em solid #4d4d4d; margin: 0.0625em 0; padding: 0; }
+
+ul { list-style-type: none; padding: 0; }
+
+body { max-width: 80em; margin: 0 auto; }
+
+img { max-width: 100%; height: auto; }
+
+a.button-primary { border: 1px solid #f26c4f; background-color: transparent; color: #f26c4f; }
+a.button-primary em { color: #000; }
+a.button-primary.active { background-color: #f26c4f; color: #fff; }
+a.button-secondary { border: 1px solid #000; background-color: transparent; color: #000; padding-left: 44px; position: relative; }
+a.button-secondary:before { content: url(../img/restart.png); position: absolute; left: 10px; }
+
+main { margin-left: 0.9375em; margin-right: 0.9375em; }
+
+footer { margin: 0 0.9375em 0.9375em 0.9375em; border-top: 0.0625em solid #000; }
+footer small { display: block; margin-top: 0.625em; }
+
+.choose-game { text-align: center; }
+
+.choose-game--opt a { font-size: 14px; font-size: 0.875rem; }
+.choose-game--opt li:first-child { margin-bottom: 0.625em; }
+@media (min-width: 30em) { .choose-game--opt li { float: left; width: 50%; margin-bottom: 0; } }
+@media (min-width: 33.125em) { .choose-game--opt a { font-size: 16px; font-size: 1rem; } }
+
+.choose-game--opt_versus { text-align: center; }
+.choose-game--opt_versus h3 { text-align: center; }
+.choose-game--opt_versus li:nth-child(2) a { display: block; margin-left: 0.9375em; }
+@media (min-width: 30em) { .choose-game--opt_versus li:nth-child(2) a { margin-left: 1.25em; } }
+.choose-game--opt_versus .result { background-color: #000; }
+.choose-game--opt_versus .result strong { font-size: 28px; font-size: 1.75rem; color: #f26c4f; }
+.choose-game--opt_versus .result div { white-space: nowrap; color: #b3b3b3; line-height: 2em; }
+.choose-game--opt_versus .result div em { color: #fff; font-size: 18px; font-size: 1.125rem; }
+.choose-game--opt_versus .result .decision { line-height: 3em; }
+.choose-game--opt_versus .result .decision em { font-size: 28px; font-size: 1.75rem; }
+.choose-game--opt_versus .button-secondary { margin: 0.9375em; }
+@media (min-width: 16.25em) { .choose-game--opt_versus li { float: left; width: 33.33333%; } }
+
+/* LAST OF THE LAST - styles that need to come last
+====================================================================================================== */
+/* ========================================================================== Helper classes ========================================================================== */
+/* Hide visually and from screen readers: h5bp.com/u */
+.hidden { display: none !important; visibility: hidden; }
+
+/* Hide only visually, but have it available for screen readers: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 0.063em; margin: -0.063em; overflow: hidden; padding: 0; position: absolute; width: 0.063em; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Clearfix: contain floats  For modern browsers 1. The space content is one way to avoid an Opera bug when the `contenteditable` attribute is included anywhere else in the document. Otherwise it causes space to appear at the top and bottom of elements that receive the `clearfix` class. 2. The use of `table` rather than `block` is only necessary if using `:before` to contain the top-margins of child elements. */
+.clearfix:before, .clearfix:after { content: " "; /* 1 */ display: table; /* 2 */ }
+
+.clearfix:after { clear: both; }
