@@ -1,6 +1,6 @@
 # Rock-Paper-Scissors Game
 
-Just having a bit of fun really. This is a basic Rock, Paper, Scissors game that's accessible as well - well that's the intention anyhow. The JavaScript is far too verbose at the moment so I will be optimising this considerably. That, as well as making it a bit more interactive with better use of UI inputs and feedback.
+Just having a bit of fun really. This is a basic Rock, Paper, Scissors game that's accessible as well - well that's the intention anyhow. The JavaScript is far too verbose at the moment so I will be optimising this considerably. As well as making it a bit more interactive with better use of UI inputs and feedback.
 
 
 ## Using / Installing
